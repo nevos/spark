@@ -137,10 +137,30 @@ const angular_deleteCampFile = function ($http, $scope, $q, camp_id, doc_id) {
     return deleteFilePromise.promise
 }
 
-app.controller("campEditController", ($scope, $http, $filter, $q) => {
+
+app.controller("campEditController", ($scope, $http, $filter, $q, $i18next ) => {
     var camp_id = document.querySelector('#meta__camp_id').value;
     var lang = $scope.lang;
-    if (lang === undefined) {
+    // const resources = i18next.getResourceBundle('he','camps') ;
+    // console.log("resources:",resources) ;
+    //console.log('      resources: ', $i18next.i18n); // prints out English -> translations -> ABSENCE_DETAIL: 'Absence Detail' ... and others
+    //console.log("TEST",i18next.getResource('en', 'camps', 'nav')) ;
+    //console.log("hasResourceBundle:",i18next.hasResourceBundle('en', 'translations'));
+
+
+        $scope.nav = i18next.t("nav");
+        console.log("nav:" , $scope.nav) ;
+
+$scope.test = function(test) {
+    var ttt = i18next.getResource('en','camps');
+    console.log(ttt) ;
+    
+}
+$scope.test() ;
+
+    i18next.getResource('en','camps');
+    
+if (lang === undefined) {
         lang = 'he';
     }
     if (lang === "he") {

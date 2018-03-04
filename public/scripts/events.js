@@ -153,15 +153,30 @@ function extractEventsCampData() {
     };
 }
 
+
+
 /**
  * Component: Editing event
  * (PUT) /camps/:camp_id/edit
  */
+
+function getScope(ctrlName) {
+    var sel = 'div[ng-controller="' + ctrlName + '"]';
+    return angular.element(sel).scope();
+}
+
+$(document).ready( function() {
+    // var scope = angular.element(document).scope();
+    // console.log(scope) ;
+    var $scope = getScope('campEditController');
+    console.log($scope.hello) ;
+});
+
 $('#camp_edit_save').click(function () {
     var camp_id = $('#camp_edit_camp_id').val();
     var camp_data = extractEventsCampData();
     var lang = document.getElementById('meta__lang').value;
-
+    console.log("editEvent",editEvent) ;
     $.ajax({
         url: '/camps/' + camp_id + '/edit',
         type: 'PUT',
@@ -170,7 +185,7 @@ $('#camp_edit_save').click(function () {
             if (lang === 'he') {
                 sweetAlert("כל הכבוד", "המחנה עודכן, על מנת לראות את השינויים יש לרענן את העמוד", "success");
             } else {
-                sweetAlert("You good...", "Camp details updated! reload the page.", "success");
+                sweetAlert(camp_edit_save1, camp_edit_save2, camp_edit_save3);
             }
         }
     });

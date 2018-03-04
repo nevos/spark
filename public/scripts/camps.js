@@ -169,9 +169,9 @@ $('#camp_edit_save').click(function () {
         data: camp_data,
         success: function (result) {
             if (lang === 'he') {
-                sweetAlert("כל הכבוד", "המחנה עודכן, על מנת לראות את השינויים יש לרענן את העמוד", "success");
+                sweetAlert("כל הכבוד111", "המחנה עודכן, על מנת לראות את השינויים יש לרענן את העמוד", "success");
             } else {
-                sweetAlert("You good...", "Camp details updated! reload the page.", "success");
+                sweetAlert(camp_edit_save1, camp_edit_save2, camp_edit_save3);
             }
         }
     });

@@ -22,6 +22,8 @@ services:
     - "8080:8080"
 
   spark:
+    volumes:
+    - ".:/home/spark"
     depends_on:
     - db
     build: .
